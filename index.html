@@ -1,7 +1,119 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="loadforge-site-verification" content="2056680d2883a8b910880d53b9cb2ebf16e7b8f91e169cceddce62c4c4ef8fe6240748c08c2e3769e554e12dafcd5bfc62028638e6524a0efd7d729efd762d42"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><meta name="theme-color" content="#000000"/><meta name="description" content="Metaplex NFT Marketplace"/><link rel="manifest" href="/manifest.json"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>ATOM3000 NFTs</title><meta name="next-head-count" content="3"/><link rel="preload" href="/_next/static/css/7312152aff1ad1ab4b65.css" as="style"/><link rel="stylesheet" href="/_next/static/css/7312152aff1ad1ab4b65.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-b592a46bc4f2d2db55ef.js" defer=""></script><script src="/_next/static/chunks/framework-c0cefa1d89deddd30198.js" defer=""></script><script src="/_next/static/chunks/main-31988b695d0beb1e1bfb.js" defer=""></script><script src="/_next/static/chunks/pages/_app-93f236daf7ebded7ee55.js" defer=""></script><script src="/_next/static/chunks/pages/index-f667f40aa0a6ff360af2.js" defer=""></script><script src="/_next/static/sDz8A8W5VP760byPTECUk/_buildManifest.js" defer=""></script><script src="/_next/static/sDz8A8W5VP760byPTECUk/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div id="root"></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"sDz8A8W5VP760byPTECUk","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script><script async="" src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script><script type="text/javascript">
-                (function () {
-                  var s = document.createElement("script");
-                  s.src = "https://stackpile.io/stack_162299.js"; s.async = true;
-                  var e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(s, e);
-                })();
-          </script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Site</title>
+
+  <meta name="description" content="">
+  <meta name="mobile-web-app-capable" content="yes"> <!-- Display full-screen in standalone mode -->
+  <meta name="mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+  <link rel="icon" href="images/favicon.png"/>
+  <!-- <link rel="author" href="humans.txt" /> -->
+
+  <link rel="stylesheet" media="all" href="css/reset.css" />
+  <link rel="stylesheet" media="all" href="css/main.css" />
+  <link rel="stylesheet" media="all" href="css/utilities.css" />
+  <link rel="stylesheet" media="screen" href="css/media.css" />
+  <link rel="stylesheet" media="print" href="css/print.css" />
+  <script>
+    function collection(){console.log("The Game is A Foot");};
+    var gameOn = false;
+    var onCount = false;
+    function bar(){
+      if(!onCount){
+        if(!gameOn){
+          gameOn = true;
+          onCount = true;
+          centerText = '';
+          drawCEN();
+          draw();
+          countdown(startAnimating);
+        } else {
+          stopAnimating();
+          gameOn = false;
+          onCount = false;
+          centerText = 'Click to Play';
+          drawCEN();
+        }
+      }
+    };
+  </script>
+</head>
+<body onload="collection()">
+  <!-- Prompt IE 6/7/8 users to upgrade their browser.
+    Earlier IE doesn't have good enough Canvas support.
+    Flash libraries that claim to add Canvas support back don't support some of
+    the tricks we use like context.transform(). -->
+  <!--[if lt IE 9 ]>
+    <p class="outdated">
+      You are using an <strong>outdated</strong> browser.
+      <a href="http://whatbrowser.org/">Upgrade to a different browser</a> to
+      experience this site.
+    </p>
+  <![endif]-->
+ 
+  <div id="main">
+    <div id="content">
+      <canvas id="canvas" width="600" height="800" onclick="bar()">
+        Your browser does not support the &lt;canvas&gt; element!
+      </canvas>
+    </div>
+    </div> <!-- /content -->
+  </div> <!-- /main -->
+      <svg xmlns="http://www.w3.org/2000/svg" id="foot" display="none" viewBox="0 0 1260 440">
+        <g stroke="#000" stroke-width="12">
+          <path id="tone" fill="#d68d6a" d="m1072 277.7 155.8 33.9 23.7-97.7-36.2-15.1 10.3-28.7-37.8-14.9 11.7-39-39-11.7 8.7-37-39-4.7 11.1-45C888.1 3.3 217.3 3.3 126.1 19.2 31 36.2 99.2 234 99.2 234c148.1-59.7 610.4-207.3 972.9 43.6Z"/>
+          <path id="leg" fill="#fbd266" d="M245 1569.2C453.4 1162.2 37.7 215.3 37.7 215.3 270.5 68 916 71 1175.7 324.6 998 679.5 883 1226.6 713.5 1652.3c-212.3 70.6-258 3.8-468.5-83.1z"/>
+          <path fill="none" d="m1119 229.7 78 21.7 28.5-88m-92.6-109.2-9.7 34.9-60.5-6.3m101.1 10.7-12.4 47-59.4-11.2m96.3 25.4-15.8 44.1-71.1-17.7"/>
+        </g>
+      </svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" id="ballSvg" display="none" viewBox="0 0 260 260">
+          <g stroke="#000" transform="translate(131 517)">
+            <path id="bb" fill="#ffd42a" d="M113.8-446a40 40 0 0 0-13.6-18.1c-21.2-15.5-49.8 7.2-61.9 19.7-12.1 12.5-27.6 34.9-27.6 34.9s-41.7-32.9-66.8-46.1c-8.9-4.7-28.7-10.9-45.2 4.6-26 24.4-26.8 60.2-22 84.3A131.4 131.4 0 0 0-79-289.1c21.3 18.2 38.3 23.8 54 19.7 20.2-5.2 33-22.1 39.6-32.4 0 0-20 29.6-18.4 35.7 3.1 11.8 42.4.7 59.6-9.7 20-10.7 40-25.4 57.3-59 16.5-32 12-79.3.7-111.1zm-124.2 67.8c-6.3 9.4-11 17.6-17 27a57.5 57.5 0 0 1-11.3-48.5c10.2 6.8 20.7 16 28.3 21.4z"/>
+            <path fill="none" d="M-38.7-399.7A74 74 0 0 0-64.4-410m75 .6-21 31.5m-17 26.9c-8.3 14.2-14 21.8-22.8 30m64.8 19.3s10.5-15.4 18.2-30.9c1.7-3.3 16-29.8 22.9-43 5.6-10.7 16.9-28.5 18.2-32"/>
+            <path id="tone" fill="#fca" d="M-18.3-431.2a39.1 39.1 0 0 0 13.5-7.6c1.6 0 5-1.9 5-5 6-5.2 18.8-10.7 8.9-25.5-2.4.8-4.6.9-7.4.4 0-.2-3.2-14.5-8.5-18.7-2.9-2.3-8.4-2.4-13.8-.5-7.6 2.6-13 6.2-14.9 9.4 0 0-2.4-7.4-8.1-2.7-10.4 8.4-8.3 15.7-6.1 15.7l-6.5 10.1c13.1 7.5 26 15.4 38.1 24.4z"/>
+            <path fill="none" d="M-15.4-452.9s-.9-10.8-3.7-14.8c-3-4.2-7.4-6.8-10.5-4.3-3 2.4-1 8.9 2.2 12.7 4.4 5.2 12 6.3 12 6.3zm15.5 9.1c-1.4-3.4-5.5-7.2-15.5-9.1 1.9 9.2 7.3 13.9 10.6 14.1"/>
+            <path id="hair" fill="#d38d5f" d="M-38.1-482.8s5.5-12 16.6-18.8c10.1-6.1 25.3-2.3 30.8 4.2 4.7-1.4 8.1-.7 10.4-2.1 5.5-3.3 6.4-8.4 8-12.5a40.2 40.2 0 0 1-4.4 31.3c6.4 11.4-2.4 33.4-22 35.8 8.5-7.1 16-12.2 7.5-24.4-2.5.7-5.3 1-7.4.4 0-.3-3.4-19.5-12.7-20.3-2.9-.3-6.4-.2-9.8 1.1a32 32 0 0 0-14.7 9.4z"/>
+            <path fill="none" d="M-2.7-441c-3.9-2.2-6.3-5.2-9-8.1m-7-7.3a57 57 0 0 1-9.7-12.8m3.3 30.7c-1.2-.2-2.3-.7-3.7 0m-3.3-3.9c.9-1.7.4-4-1-6.9m49.6-2.5C12.9-449 8-448 6-449m-38.7-42.1c-1 3.7.1 5.6 1.5 7.9m3.5-13.6a12 12 0 0 0 1 11m5-15.8c-3.6 5.6-2 10.3-.5 14m7.3-16.6c-4.3 5-3.7 9.4-1.7 15.3m9.1-15.6c-5 4.1-4.5 10.4-3 15.6m11.8-13.8c-5.5 4-6.2 9.7-6.8 16.9m14.8-11.6C.2-493.7-3-488-1-478m23.9 17c-4.7 7-8.5 8-12.6 6.7m15.2-17c-1.8 6.5-5.4 11.8-13.3 11.2m12.5-17.8c-.3 5.4-4.4 10.3-13 12.7m11.7-15.6A29.6 29.6 0 0 1 9-469.3"/>
+          </g>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="ballSvg2" display="none" viewBox="0 0 160 160">
+          <g transform="translate(80 80)" stroke="#000">
+            <path id="tone" fill="#784421"  d="M-31.5-45.2c-5.7-8.4 8.2-17 10-18 0 0-2.6-4-1.8-4.3.8-.2 10.6-5 11.7-4.9 1 .2 2.3 4 3.1 3.9.8-.2 17.6-6.4 21.9 3.1 5 11.5-10.4 18-10.4 18l1.2 3.9s-11 5.3-11.6 5.3c-.5 0-2.1-4-2.1-4s-15.9 5.9-22-3z"/>
+            <path fill="none" d="M-6-53.8c1 2.5 2 5 3.6 7.4M-11-65.6c1.3 2 2.4 4.1 3.3 6.1M3-47.4l-12.5 5.2m.8-26.3c-4 1.4-8.9 3.4-12.9 5.3m-1.6 7.7c1.2 3.6.4 8 6.5 10m3.8-5a1.3 1.3 0 0 1-1.3 1.3 1.3 1.3 0 0 1-1.3-1.3 1.3 1.3 0 0 1 1.3-1.4 1.3 1.3 0 0 1 1.3 1.4m-2.2-5.7a1.2 1.2 0 0 1-1.2 1.2 1.2 1.2 0 0 1-1.2-1.2 1.2 1.2 0 0 1 1.2-1.1 1.2 1.2 0 0 1 1.2 1.1m8-.8c2.4-.5 11.6 9.5 5.6 11.5-5 1.7-9.1-6-5.5-11.5zm0 0c1.7-1.5 2.7-13-4.3-10.3C-17.7-65-8.3-56.7-7-57z"/>
+            <path id="bb" fill="#ffd42a"  d="M77.5-.4a76.1 76.1 0 0 0-22.3-54.1c-5.4-5.8-18.8-3-23.3 3-14 18.6-46 88.8-46 88.8-20.5-14.2-33-34-18.3-58.3L3 1l8.4-16.3s-36.2-22.5-43.7-27.8c-7.6-5.3-29.1-5.8-37.2 8.7A77.5 77.5 0 1 0 77.5 0m-95.3 75.4c14.2 3.4 17.4-.5 24-12a988.3 988.3 0 0 0 40-86.5"/>
+          </g>
+        </svg>
+     
+ 
+  
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../js/libraries/jquery-2.0.2.min.js"><\/script>')</script>
+
+  <script src="js/libraries/stats.min.js"></script>
+  <script src="js/combined.js"></script>
+  <script src="js/breakout.js"></script> 
+  <script src="js/atom3000/hmCollection_wAtt_001.js"></script>
+  <script src="js/atom3000/toCollection_wAtt_001.js"></script>
+  <script src="js/atom3000/csCollection_wAtt_001.js"></script>
+  <script src="js/atom3000/ebCollection_wAtt_001.js"></script>
+  <script src="js/atom3000/kwCollection_wAtt_001.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXXXXX-X to be your site's ID. -->
+  <script>
+    /*
+    var _gaq=[['_setAccount','UA-XXXXXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    */
+  </script>
+
+</body>
+</html>
