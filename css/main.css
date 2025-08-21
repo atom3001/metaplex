@@ -24,6 +24,12 @@ html, body, canvas {
   margin: 0;
 }
 
+@media screen {
+  canvas {
+    width: 100%;
+  }
+}
+
 canvas {
   -khtml-user-select: none;
   -moz-user-select: none;
