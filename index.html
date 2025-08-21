@@ -22,13 +22,6 @@
   
   <script>
     function collection(){
-      let isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobileDevice) {
-        console.log("Mobile");
-        //document.getElementById("canvas").style.width = "100%";
-      } else {
-        console.log("Desktop");
-      }
       console.log("The Game is A Foot");
     };
     var gameOn = false;
@@ -68,7 +61,7 @@
  
   <div id="main">
     <div id="content">
-      <canvas id="canvas" width="750" height="1000" onclick="bar()">
+      <canvas id="canvas" width="600" height="800" onclick="bar()">
         Your browser does not support the &lt;canvas&gt; element!
       </canvas>
     </div>
