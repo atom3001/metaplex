@@ -1601,13 +1601,14 @@ App.reset = function(first) {
     App.isSomethingBeingDragged = false;
     jQuery(document).trigger('canvasdragstop');
   }
-
+  
+/*
   // If the world already exists, reset it to the origin.
   if (typeof world !== 'undefined') {
     context.translate(world.xOffset, world.yOffset);
     world.scaleResolution(1);
   }
-
+*/
   // Set up the world.
   // Lots of drawing depends on the world size, so set this before anything
   // else and try not to change it.
