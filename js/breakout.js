@@ -9,7 +9,18 @@ var preloadables = ['images/Foot_007.svg','images/SolApeFam.svg','images/ball_eb
  */
 var player;
 var svgBall, bb, fullBall;
-var centerText = 'Click to Play';
+var centerText = 'Tap to Play';
+function doubleT(){
+      let isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobileDevice) {
+        console.log("Mobile");
+        centerText = 'Double tap for full screen';
+      } else {
+        console.log("Desktop");
+      }
+}
+doubleT();
+
 var background;
 var cnftCo;
 var columns = 7;
@@ -125,6 +136,8 @@ function updateCnft(){
 
   // Make sure the image is loaded first otherwise nothing will draw.
   background.onload = function(){
+  //var widthTH  = window.innerWidth;
+  //var heightTH = window.innerHeight;
   ctx.drawImage(background,0,0,600,600);
   }
   updateBall();
@@ -227,6 +240,8 @@ function update(delta, timeElapsed) {
 function draw() {
   //context.drawCheckered(100, 0, 0, world.width, world.height);
   //context.drawImage('images/SolApeFam.svg',0,0);
+
+  
   context.drawImage(background,0,0,600,600);
   hud.draw();
   cen.draw();
@@ -416,7 +431,7 @@ function drawHUD() {
   hud.context.font = '24px Arial';
 }
 
-// Draw the score and lives.
+// Center text.
 function drawCEN() {
   cen.context.clear();
   //cen.context.strokeText('', 300, 650);
