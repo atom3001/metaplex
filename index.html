@@ -21,7 +21,16 @@
   <link rel="stylesheet" media="print" href="css/print.css" />
   
   <script>
-    function collection(){console.log("The Game is A Foot");};
+    function collection(){
+      let isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobileDevice) {
+        console.log("Mobile Device");
+        document.getElementById("canvas").style.width = "100%";
+      } else {
+        console.log("Desktop");
+      }
+      console.log("The Game is A Foot");
+    };
     var gameOn = false;
     var onCount = false;
     function bar(){
