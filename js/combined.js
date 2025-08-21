@@ -1602,13 +1602,11 @@ App.reset = function(first) {
     jQuery(document).trigger('canvasdragstop');
   }
 
-/*
   // If the world already exists, reset it to the origin.
   if (typeof world !== 'undefined') {
     context.translate(world.xOffset, world.yOffset);
     world.scaleResolution(1);
   }
-*/
 
   // Set up the world.
   // Lots of drawing depends on the world size, so set this before anything
@@ -2074,7 +2072,7 @@ jQuery(window).on('blur.animFocus', function() {
   stopAnimating();
   _blurred = true;
   gameOn = false;
-  centerText = 'Tap to Play';
+  centerText = 'Click to Play';
   drawCEN();
 });
 
