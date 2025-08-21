@@ -25,10 +25,10 @@ html, body, canvas {
 }
 
 canvas {
-  width: 600;
+  width: 640;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   canvas {
     width: 100%;
   }
