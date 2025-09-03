@@ -9,7 +9,7 @@ var preloadables = ['images/Foot_007.svg','images/SolApeFam.svg','images/ball_eb
  */
 var player;
 var svgBall, bb, fullBall;
-var centerText = 'Click to Play';
+var centerText = 'Tap to Play';
 var background;
 var cnftCo;
 var columns = 7;
@@ -322,29 +322,29 @@ function setup(first) {
     hud = new Layer({
       relative: 'canvas',
     });
-    hud.context.font = '24px Arial';
+    hud.context.font = '34px slackey_regular';
     hud.context.textAlign = 'right';
     hud.context.textBaseline = 'top';
     hud.context.fillStyle = '#2e2b2b';
     hud.context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
-    hud.context.lineWidth = 3;
+    hud.context.lineWidth = 5;
     // Set up center display.
     cen = new Layer({
       relative: 'canvas',
     });
-    cen.context.font = '34px Arial';
+    cen.context.font = '64px slackey_regular';
     cen.context.textAlign = 'right';
     cen.context.textBaseline = 'top';
     cen.context.fillStyle = '#2e2b2b';
     cen.context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
-    cen.context.lineWidth = 3;
+    cen.context.lineWidth = 9;
 
     // Add the countdown element.
     jQuery('#countdown').remove();
     $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; top: 30%; width: 100%; z-index: 10;">0</div>');
   }
   drawHUD();
-  drawCEN();
+  drawCEN(625);
 
   // Initialize the bricks at the beginning of a new level.
   if (typeof bricks === 'undefined' || !bricks.getAll().length || lives === 3) {
@@ -368,14 +368,19 @@ function setup(first) {
 // 3... 2... 1... Go!
 function countdown(callback) {
   centerText = '3';
-  drawCEN();
+  drawCEN(300);
   draw();
   onCount = true;
-  
+  setTimeout(function() {
+    //$countdown.text('1');
+    centerText = '';
+    drawCEN(625);
+    draw();
+  }, 4000);
   setTimeout(function() {
     //$countdown.text('Go!').fadeOut(1000);
     centerText = 'Go!';
-    drawCEN();
+    drawCEN(625);
     draw();
     if (typeof callback == 'function') {
       callback();
@@ -385,13 +390,13 @@ function countdown(callback) {
   setTimeout(function() {
     //$countdown.text('1');
     centerText = '1';
-    drawCEN();
+    drawCEN(500);
     draw();
   }, 2000);
   setTimeout(function() {
     //$countdown.text('2');
     centerText = '2';
-    drawCEN();
+    drawCEN(400);
     draw();
   }, 1000);
 }
@@ -409,21 +414,25 @@ function drawHUD() {
   hud.context.textAlign = 'right';
   hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
   hud.context.fillText('COINS: ' + score, canvas.width - 15, 15);
-  hud.context.font = '94px Arial';
+  hud.context.font = '34px slackey_regular';
   hud.context.textAlign = 'center';
+    if(winner!=""){
+    hud.context.font = '80px slackey_regular';
+  }
   hud.context.strokeText(winner, 300, 300);
   hud.context.fillText(winner, 300, 300);
-  hud.context.font = '24px Arial';
+  hud.context.font = '34px slackey_regular';
+
+  
 }
 
+//var fontCentHeight = 625
 // Draw the score and lives.
-function drawCEN() {
+function drawCEN(fontCentHeight) {
   cen.context.clear();
-  //cen.context.strokeText('', 300, 650);
-  //cen.context.fillText('', 300, 650);
   cen.context.textAlign = 'center';
-  cen.context.strokeText(centerText, 300, 650);
-  cen.context.fillText(centerText, 300, 650);
+  cen.context.strokeText(centerText, 300, fontCentHeight);
+  cen.context.fillText(centerText, 300, fontCentHeight);
 }
 
 // Ball type
@@ -442,7 +451,6 @@ var Ball = Actor.extend({
    // Draw as a smiley face normally, but a frowny face after hitting the bottom.
    drawDefault: function() {
     if (this.lifeTaken) {
-      console.log("You Dead!");
     }
     else {
       Actor.prototype.drawDefault.apply(this, arguments);
@@ -462,7 +470,12 @@ var Ball = Actor.extend({
       if (player.hasLivesLeft()) {
         player.takeLife();
         player.destroy();
-        console.log("You Dead")
+        extraLives = "!!!! LIFE LOST !!!!";
+      console.log("!!YOU DEAD!!");
+       setTimeout(() => {
+      extraLivesReset();
+    }, "2000");
+      drawHUD()
       //var svgBall = document.getElementById("bb");
     /*  bb.setAttribute("fill", "red");
       fullBall = svgBall.outerHTML;
