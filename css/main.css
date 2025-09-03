@@ -1,6 +1,15 @@
 /**
  * Overrides to reset.css
  */
+@font-face {
+    font-family: 'slackey_regular';
+    src: url('fonts/slackey_regular.eot');
+    src: url('fonts/slackey_regular.eot') format('embedded-opentype'),
+         url('fonts/slackey_regular.woff2') format('woff2'),
+         url('fonts/slackey_regular.woff') format('woff'),
+         url('fonts/slackey_regular.ttf') format('truetype'),
+         url('fonts/slackey_regular.svg#slackey_regular') format('svg');
+}
 
 html, button, input, select, textarea {
   color: #000000;
@@ -16,12 +25,13 @@ h1 {
 
 html, body {
   background-color: #212020;
-  font-family: Arial, sans-serif;
+  font-family: 'slackey_regular';
 }
 
 html, body, canvas {
   padding: 0;
   margin: 0;
+  font-family: 'slackey_regular';
 }
 
 canvas {
