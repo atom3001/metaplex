@@ -11,8 +11,8 @@
   <meta name="mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!--<meta name="viewport" content="height=device-height, user-scalable=no">-->
-
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+  
   <link rel="apple-touch-icon" href="images/ball_eb_01_150.png"/>
   <link rel="icon" type="image/png" href="images/ball_eb_01.png"/>
   <link rel="icon" type="image/svg" href="images/ball_eb_01.svg"/>
@@ -36,46 +36,7 @@
 
   </style>
   <script>
-    
-    function collection(){
-      var ww = window.innerWidth;
-      var wh = window.innerHeight;
-      var ratio = ww/wh;
-      var zoom = ww/600;
-      var nh = 800;
-      console.log("ratio "+ratio)
-      console.log("wh "+wh+" ww "+ww)
-      var element = document.getElementById("canvas");
-      console.log(element)
-
-      // Check if the user is accessing the page on a mobile device
-      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile&&ratio<0.65) {
-          // User is accessing the page on a mobile device
-            element.height = (wh/zoom)-45;  // Set height
-            //browser.tabs.setZoom(tabId, ratio);
-            document.body.style.zoom = (zoom*100)+"%";
-            brickRan = 4;
-            var foot_l = document.getElementById("foot_l");
-            foot_l.id = "foot";
-            PADDLE_HEIGHT = 200;
-        console.log("Mobile device detected");
-      } else {
-        // User is accessing the page on a desktop device
-          element.height = 800;  // Set height
-          document.body.style.zoom = "100%";
-          brickRan = 2;
-          var foot_s = document.getElementById("foot_s");
-          foot_s.id = "foot";
-          PADDLE_HEIGHT = 80;
-          rows = 3;
-        console.log("Desktop device detected");
-      }
-  
-      console.log(element);
-      console.log("The Game is A Foot");
-    
-    };
+    function collection(){console.log("The Game is A Foot");};
     var gameOn = false;
     var onCount = false;
     function bar(){
@@ -134,20 +95,14 @@
     </div>
     </div> <!-- /content -->
   </div> <!-- /main -->
-      <svg xmlns="http://www.w3.org/2000/svg" id="foot_l" display="none" viewBox="0 0 406 600">
+     <svg xmlns="http://www.w3.org/2000/svg" id="foot" display="none" viewBox="0 0 406 650">
   <g transform="translate(-474 -1160)" stroke="#000" stroke-width="7.4">
     <path id="tone" fill="#d68d6a" d="m817.4 1270.4 45.1 12 13.2-41.3-12-5 3.4-9.5-12.5-5 3.8-12.9-12.9-3.9 2.9-12.3-13-1.5 3.5-14.2c-81.5-18.3-291 9.4-321.3 14.7-31.5 5.7-23.8 56.3-23.8 56.3 49-19.8 203.5-60.5 323.6 22.6z"/>
     <path id="leg" fill="#fbd266" d="M 521.6,1813.7364 C 594.65739,1646.6915 477.2,1258.9 477.2,1258.9 c 72.1,-58.7 281.8,-60.4 362.7,32.1 -58.8,117.6 -132.41591,505.571 -162.9,550.2364 -70.4,23.4 -85.5,1.3 -155.3,-27.5 z"/>
     <path fill="none" d="m831.8 1246.3 25.8 7.2 9.5-29.2m-30.7-36.2-3.2 11.6-20.1-2m33.5 3.5-4 15.5-19.8-3.6m32 8.3-5.3 14.7-23.6-5.9"/>
   </g>
 </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" id="foot_s" display="none" viewBox="0 0 1260 440">
-        <g stroke="#000" stroke-width="12">
-          <path id="tone" fill="#d68d6a" d="m1072 277.7 155.8 33.9 23.7-97.7-36.2-15.1 10.3-28.7-37.8-14.9 11.7-39-39-11.7 8.7-37-39-4.7 11.1-45C888.1 3.3 217.3 3.3 126.1 19.2 31 36.2 99.2 234 99.2 234c148.1-59.7 610.4-207.3 972.9 43.6Z"/>
-          <path id="leg" fill="#fbd266" d="M245 1569.2C453.4 1162.2 37.7 215.3 37.7 215.3 270.5 68 916 71 1175.7 324.6 998 679.5 883 1226.6 713.5 1652.3c-212.3 70.6-258 3.8-468.5-83.1z"/>
-          <path fill="none" d="m1119 229.7 78 21.7 28.5-88m-92.6-109.2-9.7 34.9-60.5-6.3m101.1 10.7-12.4 47-59.4-11.2m96.3 25.4-15.8 44.1-71.1-17.7"/>
-        </g>
-      </svg>
+
       
       <svg xmlns="http://www.w3.org/2000/svg" id="ballSvg" display="none" viewBox="0 0 260 260">
           <g stroke="#000" transform="translate(131 517)">
