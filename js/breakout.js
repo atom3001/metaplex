@@ -122,11 +122,18 @@ function updateCnft(){
   var ctx  = canvas.getContext("2d");
   background = new Image();
   background.src = collection[select].path;
-
+  //overlay = new Image();
+  //overlay.src = "images/top_rec_001.svg"
+  //"images/grad_v1.png"
+  
   // Make sure the image is loaded first otherwise nothing will draw.
   background.onload = function(){
   ctx.drawImage(background,0,0,600,600);
+  //ctx.drawImage(overlay,0,599,600,21);
   }
+
+  
+
   updateBall();
   updateFoot();
   updateHeader();
@@ -152,9 +159,9 @@ var PADDLE_WIDTH = 180, //120
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
     SPIN_FACTOR = 100, // 100 is arbitrary, but it should be above the FPS.
     BALL_RADIUS = 35,
-    BALL_SPEED = 400, // In pixels per second
-    MAX_BALL_SPEED = 1000,
-    BALL_SPEED_LEVEL_INCREASE = 25,
+    BALL_SPEED = 600, // In pixels per second was 400
+    MAX_BALL_SPEED = 1200, // was 1000
+    BALL_SPEED_LEVEL_INCREASE = 45, //was 25
     PAUSE = 1500; // ms to pause after losing a life or winning a level
 
 /**
@@ -247,7 +254,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 80, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 240, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
@@ -255,7 +262,7 @@ function setup(first) {
     ctx.fillRect(x, y, w, h);
   };
   */
-  player.src = 'images/Foot_007.svg';
+  player.src = 'images/Foot_002.svg';
   
 
   // Ignore up/down keys.

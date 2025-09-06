@@ -3013,6 +3013,10 @@ function Layer(options) {
       x = ctx;
       ctx = context;
     }
+    ctx.shadowColor = 'rgba(25, 25, 25, 0.2)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
     x = typeof x === 'undefined' ? this.x : x;
     y = typeof y === 'undefined' ? this.y : y;
     ctx.save();
