@@ -264,7 +264,7 @@ function setup(first) {
     ctx.fillRect(x, y, w, h);
   };
   */
-  player.src = 'images/Foot_002.svg';
+  player.src = 'images/Foot_004.svg';
   
 
   // Ignore up/down keys.
