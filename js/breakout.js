@@ -254,7 +254,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 240, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 280, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
