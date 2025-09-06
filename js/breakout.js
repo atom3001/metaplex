@@ -2,7 +2,7 @@
 /**
  * An array of image file paths to pre-load.
  */
-var preloadables = ['images/Foot_007.svg','images/SolApeFam.svg','images/ball_eb_01.svg','images/ball_hm_01.svg','images/MM_Sun_Ball_001.svg','images/MM_Sun_Ball_006.svg'];
+var preloadables = ['images/SolApeFam.svg'];
 
 /**
  * The Player object; an Actor controlled by user input.
@@ -13,7 +13,7 @@ var centerText = 'Tap to Play';
 var background;
 var cnftCo;
 var columns = 7;
-var rows = 3;
+var rows = 6;
 
 var layout =  "   B   \n   B   \n   B   ";
 
@@ -25,7 +25,7 @@ function updateLayout(){
     var newRow = [];
     for(j=1;j<=columns;j++)
     {
-      newRow.push(ops[Math.floor(Math.random()*2)]);
+      newRow.push(ops[Math.floor(Math.random()*4)]);
     }
     newRow.push(end);
     newLayout.push(newRow);
