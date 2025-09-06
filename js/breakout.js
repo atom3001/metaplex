@@ -14,6 +14,7 @@ var background;
 var cnftCo;
 var columns = 7;
 var rows = 6;
+var brickRan = 4;
 
 var layout =  "   B   \n   B   \n   B   ";
 
@@ -25,7 +26,7 @@ function updateLayout(){
     var newRow = [];
     for(j=1;j<=columns;j++)
     {
-      newRow.push(ops[Math.floor(Math.random()*4)]);
+      newRow.push(ops[Math.floor(Math.random()*brickRan)]);
     }
     newRow.push(end);
     newLayout.push(newRow);
@@ -153,15 +154,16 @@ var winner = "";
 
 
 // Constants. Tweak these to change the game dynamics.
-var PADDLE_WIDTH = 180, //120
+var PADDLE_WIDTH = 160, //120
+    PADDLE_HEIGHT = 200 //was 80
     INITIAL_LIVES = 3,
     BRICK_SCORE = 30, // Points for destroying a single block
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
     SPIN_FACTOR = 100, // 100 is arbitrary, but it should be above the FPS.
     BALL_RADIUS = 35,
-    BALL_SPEED = 600, // In pixels per second was 400
+    BALL_SPEED = 800, // In pixels per second was 400
     MAX_BALL_SPEED = 1200, // was 1000
-    BALL_SPEED_LEVEL_INCREASE = 45, //was 25
+    BALL_SPEED_LEVEL_INCREASE = 55, //was 25
     PAUSE = 1500; // ms to pause after losing a life or winning a level
 
 /**
@@ -254,7 +256,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 280, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, PADDLE_HEIGHT, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
@@ -290,10 +292,12 @@ function setup(first) {
     ball.height = BALL_RADIUS*2;
     setTimeout(() => {
       extraLivesReset();
+    }, "2000");
+    setTimeout(() => {
       BALL_RADIUS = 35;
       ball.width = BALL_RADIUS*2;
       ball.height = BALL_RADIUS*2;
-    }, "2000");
+    }, "8000");
     console.log("Bonus life added!!!!");
     drawHUD();
   };
@@ -375,13 +379,13 @@ function setup(first) {
 // 3... 2... 1... Go!
 function countdown(callback) {
   centerText = '3';
-  drawCEN(300);
+  drawCEN(710);
   draw();
   onCount = true;
   setTimeout(function() {
     //$countdown.text('1');
     centerText = '';
-    drawCEN(625);
+    drawCEN(628);
     draw();
   }, 4000);
   setTimeout(function() {
@@ -397,13 +401,13 @@ function countdown(callback) {
   setTimeout(function() {
     //$countdown.text('1');
     centerText = '1';
-    drawCEN(500);
+    drawCEN(710);
     draw();
   }, 2000);
   setTimeout(function() {
     //$countdown.text('2');
     centerText = '2';
-    drawCEN(400);
+    drawCEN(710);
     draw();
   }, 1000);
 }
@@ -412,22 +416,22 @@ function countdown(callback) {
 function drawHUD() {
   hud.context.clear();
   hud.context.textAlign = 'left';
-  hud.context.strokeText('LIVES: ' + lives, 15, 15);
-  hud.context.fillText('LIVES: ' + lives, 15, 15);
+  hud.context.strokeText('LIVES ' + lives, 15, 15);
+  hud.context.fillText('LIVES ' + lives, 15, 15);
   hud.context.textAlign = 'center';
-  hud.context.strokeText(extraLives, 300, 400);
-  hud.context.fillText(extraLives, 300, 400);
+  hud.context.strokeText(extraLives, 300, 625);
+  hud.context.fillText(extraLives, 300, 625);
  
   hud.context.textAlign = 'right';
-  hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
-  hud.context.fillText('COINS: ' + score, canvas.width - 15, 15);
+  hud.context.strokeText(score+' COINS', canvas.width - 15, 15);
+  hud.context.fillText(score+' COINS', canvas.width - 15, 15);
   hud.context.font = '34px slackey_regular';
   hud.context.textAlign = 'center';
     if(winner!=""){
     hud.context.font = '80px slackey_regular';
   }
-  hud.context.strokeText(winner, 300, 300);
-  hud.context.fillText(winner, 300, 300);
+  hud.context.strokeText(winner, 300, 625);
+  hud.context.fillText(winner, 300, 625);
   hud.context.font = '34px slackey_regular';
 
   
