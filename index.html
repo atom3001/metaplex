@@ -164,10 +164,10 @@
       .then(ua => {
         //console.log(ua.platform);
 		    //console.log(ua.model);
-		if(ua.model=='seeker'){
-		  //document.getElementById("seek").innerHTML = ua.model+" in the house!";
+		if(ua.model!=''){
+		  document.getElementById("seek").innerHTML = ua.model+" in the house!";
       var canvas = document.getElementById("canvas");
-      canvas.style.height = 970;
+      canvas.height = 970;
       rows = 6;
       brickRan = 4;
       var foot_s = document.getElementById("foot");
