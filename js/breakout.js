@@ -9,6 +9,7 @@ var preloadables = ['images/MM_Sun_Ball_006.svg'];
  */
 var player;
 var centerText = 'Tap to Play';
+var cenTextHeight = 625;
 var background;
 var cnftCo;
 var columns = 7;
@@ -385,7 +386,7 @@ function setup(first) {
 
     // Add the countdown element.
     jQuery('#countdown').remove();
-    $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; color: #2e2b2b; text-shadow: 2px 2px 0 rgba(211, 211, 211, 0.5), -2px -2px 0 rgba(211, 211, 211, 0.5), 2px -2px 0 rgba(211, 211, 211, 0.5), -2px 2px 0 rgba(211, 211, 211, 0.5); top: 30%; width: 100%; z-index: 10;">0</div>');
+    $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; color: #2e2b2b; text-shadow: 2px 2px 0 rgba(211, 211, 211, 0.5), -2px -2px 0 rgba(211, 211, 211, 0.5), 2px -2px 0 rgba(211, 211, 211, 0.5), -2px 2px 0 rgba(211, 211, 211, 0.5); top: 21%; width: 100%; z-index: 10;">0</div>');
   }
   drawHUD();
   drawCEN();
@@ -434,8 +435,8 @@ function drawHUD() {
   hud.context.strokeText('LIVES: ' + lives, 15, 15);
   hud.context.fillText('LIVES: ' + lives, 15, 15);
   hud.context.textAlign = 'center';
-  hud.context.strokeText(extraLives, 300, 400);
-  hud.context.fillText(extraLives, 300, 400);
+  hud.context.strokeText(extraLives, 300, 300);
+  hud.context.fillText(extraLives, 300, 300);
  
   hud.context.textAlign = 'right';
   hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
@@ -454,8 +455,8 @@ function drawHUD() {
 function drawCEN() {
   cen.context.clear();
   cen.context.textAlign = 'center';
-  cen.context.strokeText(centerText, 300, 650);
-  cen.context.fillText(centerText, 300, 650);
+  cen.context.strokeText(centerText, 300, cenTextHeight);
+  cen.context.fillText(centerText, 300, cenTextHeight);
 }
 
 // Ball type
