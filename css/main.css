@@ -27,13 +27,19 @@ h1 {
     	background-color: transparent;
         border: 0px;
     }
-    
+
+a:link { color: grey; } /* Unvisited link */
+a:visited { color: lightgreen; } /* Visited link */
+a:hover { color: lightblue; } /* Mouse over link */
+a:active { color: lightgreen; } /* Clicked link */
+
+
 html, body {
   background-color: #212020;
   font-family: 'slackey_regular';
 }
 
-html, body, canvas {
+html, body, canvas, p {
   padding: 0;
   margin: 0;
   font-family: 'slackey_regular';
