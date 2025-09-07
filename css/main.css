@@ -33,7 +33,13 @@ a:visited { color: lightgreen; } /* Visited link */
 a:hover { color: lightblue; } /* Mouse over link */
 a:active { color: lightgreen; } /* Clicked link */
 
+#rel {
+  a:link { color: black; } /* Unvisited link */
+  a:visited { color: black; } /* Visited link */
+  a:hover { color: black; } /* Mouse over link */
+  a:active { color: lightgreen; } /* Clicked link */
 
+}
 html, body {
   background-color: #212020;
   font-family: 'slackey_regular';
