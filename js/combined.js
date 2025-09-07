@@ -2072,8 +2072,8 @@ jQuery(window).on('blur.animFocus', function() {
   stopAnimating();
   _blurred = true;
   gameOn = false;
-  centerText = 'Tap to Play';
-  drawCEN(625);
+  centerText = 'Click to Play';
+  drawCEN();
 });
 
 })();
@@ -2738,14 +2738,14 @@ App.gameOver = function(text) {
   // This runs during update() before the final draw(), so we have to delay it.
   setTimeout(function() {
     context.save();
-    context.font = '80px slackey_regular';
-    context.fillStyle = '#2e2b2b';
-    context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
+    context.font = '100px Arial';
+    context.fillStyle = 'black';
+    context.strokeStyle = 'lightGray';
     context.textBaseline = 'middle';
     context.textAlign = 'center';
-    /*context.shadowColor = 'black'; */
+    context.shadowColor = 'black';
     context.shadowBlur = 8;
-    context.lineWidth = 14;
+    context.lineWidth = 5;
     var x = Math.round(world.xOffset+canvas.width/2);
     var y = Math.round(world.yOffset+canvas.height/2);
     context.strokeText(text, x, y);
@@ -3013,10 +3013,6 @@ function Layer(options) {
       x = ctx;
       ctx = context;
     }
-    ctx.shadowColor = 'rgba(25, 25, 25, 0.2)';
-    ctx.shadowBlur = 8;
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
     x = typeof x === 'undefined' ? this.x : x;
     y = typeof y === 'undefined' ? this.y : y;
     ctx.save();

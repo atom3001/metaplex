@@ -2,19 +2,17 @@
 /**
  * An array of image file paths to pre-load.
  */
-var preloadables = ['images/SolApeFam.svg'];
+var preloadables = ['images/Foot_007.svg','images/SolApeFam.svg','images/ball_eb_01.svg','images/ball_hm_01.svg','images/explosion.gif'];
 
 /**
  * The Player object; an Actor controlled by user input.
  */
 var player;
-var svgBall, bb, fullBall;
-var centerText = 'Tap to Play';
+var centerText = 'Click to Play';
 var background;
-//var overlay; //nearly there need to a svg to index to make colour updatable
 var cnftCo;
 var columns = 7;
-var rows = 6;
+var rows = 3;
 
 var layout =  "   B   \n   B   \n   B   ";
 
@@ -26,7 +24,7 @@ function updateLayout(){
     var newRow = [];
     for(j=1;j<=columns;j++)
     {
-      newRow.push(ops[Math.floor(Math.random()*4)]);
+      newRow.push(ops[Math.floor(Math.random()*2)]);
     }
     newRow.push(end);
     newLayout.push(newRow);
@@ -54,42 +52,53 @@ var desSelect = Math.floor(Math.random()*5)+1;
 var select = Math.floor(Math.random()*3000)+1;
 var cnft = "https://arweave.net/UuWSZ_PY0fzFDSjhqVlL9PxtGbMp_3gc4H7pgTvnmAc";
 function updateBall(){
-  svgBall = document.getElementById("ballSvg");
+  var svgBall = document.getElementById("ballSvg");
   if(collection[0].title==="Hive Mind"){
+    console.log("We got a hive mind "+collection[0].title);
     svgBall = document.getElementById("ballSvg2");
   } else {
-    console.log("design = "+collection[0].title);
+    console.log("We noot got a hive mind "+collection[0].title);
     svgBall = document.getElementById("ballSvg");
   }
   //var svgBall = 'images/ball_eb_01.svg';
-  bb = svgBall.getElementById("bb");
+  var bb = svgBall.getElementById("bb");
   var randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
+  console.log("bg Colour = "+collection[select].bgc);
+  console.log("random Colour = "+randCol);
   bb.setAttribute("fill", randCol);
   var tone = svgBall.getElementById("tone");
   if(collection[select].tone==="null"){
     tone.setAttribute("fill",tones[toneSelect]);
   } else {
+    //console.log("Collection is "+collection[0].title);
+    //console.log("Changing skin tone to "+collection[select].tone);
     tone.setAttribute("fill",collection[select].tone);
   }
-  fullBall = svgBall.outerHTML;
+  //console.log("svgBall = "+svgBall.outerHTML);
+  var fullBall = svgBall.outerHTML;
+  //console.log("svgBall = "+fullBall);
   let blob = new Blob([fullBall], {type : 'image/svg+xml'});
-  ball.src = URL.createObjectURL(blob);
+  ball.src = URL.createObjectURL(blob); 
 }
 function updateFoot(){
   var foot = document.getElementById("foot");
   //var svgBall = 'images/ball_eb_01.svg';
   var leg = foot.getElementById("leg");
   var randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
-  console.log("bg colour = "+collection[select].bgc);
-  console.log("foot and ball colour = "+randCol);
+  console.log("bg Colour = "+collection[select].bgc);
+  console.log("random Colour = "+randCol);
   leg.setAttribute("fill", randCol);
   var tone = foot.getElementById("tone");
   if(collection[select].tone==="null"){
     tone.setAttribute("fill",tones[toneSelect]);
   } else {
+    //console.log("Collection is "+collection[0].title);
+    //console.log("Changing skin tone to "+collection[select].tone);
     tone.setAttribute("fill",collection[select].tone);
   }
+  //console.log("svgBall = "+svgBall.outerHTML);
   var fullLeg = foot.outerHTML;
+  //console.log("svgBall = "+fullBall);
   let blob = new Blob([fullLeg], {type : 'image/svg+xml'});
   player.src = URL.createObjectURL(blob); 
 }
@@ -99,6 +108,10 @@ function updateHeader(){
 function updateCnft(){
   desSelect = Math.floor(Math.random()*5)+1;
   select = Math.floor(Math.random()*3000)+1;
+  //console.log("select is a type of "+typeof select+" "+select)
+  //cnft = "hmCollection[select].path";
+  //console.log(desSelect);
+  console.log(cnft);
   switch (desSelect) {
     case 1:
       collection = kwCollection;
@@ -117,30 +130,48 @@ function updateCnft(){
   }
   cnft = collection[select].path;
   console.log('cnft is '+cnft);
+  /*
+  cnftCo = new Object();
+  cnftCo.src = collection[select].path;
+  var cnftImage = document.getElementById("cnftImage");
+  var curImage = cnftImage.getElementsByTagName('svg');
+  var rect = cnftImage.getAttribute('rect');
+  console.log('curImage = '+curImage);
+  console.log('rectangle = '+rect);
+  */
+/*
+  var elms = document.querySelector(".emb");
+  var subdoc = elms.outerHTML;
+  var cnftSvg = elms.data //.contentDocument; //getSVGDocument();
+  var cnftSvgData = elms.data.innerHTML;//.contentDocument; //.getSVGDocument();
+  console.log('elms is '+elms);
+  console.log('subdoc is '+subdoc);
+  console.log('svg doc= '+cnftSvg);
+  console.log('svg doc data = '+cnftSvgData);
+  //cnftData = document.getElementsByTagName('svg')[0].outerHTML;
+  //console.log('cnftCo is '+cnft.contentDocument);
+  */
 
   canvas.style.backgroundColor = collection[select].bgc; //'rgba(255, 240, 40, 0)' 
+  
   
   var ctx  = canvas.getContext("2d");
   background = new Image();
   background.src = collection[select].path;
-  //overlay = new Image();
-  //overlay.src = "images/top_rec_001.svg"
-  //overlay.url = "https://x.com/atom3000_";
-  //"images/grad_v1.png"
-  
+
   // Make sure the image is loaded first otherwise nothing will draw.
   background.onload = function(){
   ctx.drawImage(background,0,0,600,600);
-  
   }
-  //overlay.onload = function(){
-    //ctx.drawImage(overlay,0,599,600,21);
-  //}
+  //var canvasData = document.getElementById('canvas').toDataURL();
+  //console.log('canvasData is '+canvasData);
+  //console.log("cnft content ="+svgDocument);
   
-
+  
   updateBall();
   updateFoot();
   updateHeader();
+ //console.log("Player colours is "+player.fill)
 }
 // Track lives and score.
 var lives, score;
@@ -157,16 +188,15 @@ var winner = "";
 
 
 // Constants. Tweak these to change the game dynamics.
-var PADDLE_WIDTH = 180, //120 liked 140 on v6 svg
-    PADDLE_HEIGHT = 80 // 80 for foot only, 280 really long
+var PADDLE_WIDTH = 180, //120
     INITIAL_LIVES = 3,
     BRICK_SCORE = 30, // Points for destroying a single block
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
     SPIN_FACTOR = 100, // 100 is arbitrary, but it should be above the FPS.
     BALL_RADIUS = 35,
-    BALL_SPEED = 600, // In pixels per second was 400
-    MAX_BALL_SPEED = 1000, // was 1000
-    BALL_SPEED_LEVEL_INCREASE = 35, //was 25
+    BALL_SPEED = 400, // In pixels per second
+    MAX_BALL_SPEED = 1000,
+    BALL_SPEED_LEVEL_INCREASE = 25,
     PAUSE = 1500; // ms to pause after losing a life or winning a level
 
 /**
@@ -194,13 +224,32 @@ function update(delta, timeElapsed) {
     o = ball.collideSolid(brick);
     ball.bounce(o.x, o.y);
     // Increment score and kill the brick if we hit it.
-    if (o.x || o.y) {     
+    if (o.x || o.y) {
+      //console.log("hit at "+brick.x+" "+brick.y);       
       burn = new Box(brick.x, brick.y, 80, 80);     
-      burn.src = 'images/MM_Sun_Ball_006.svg';
+      burn.src = 'images/explosion.gif';
+      /*
+      burn.src = new Sprite('images/explosionMap.gif',  {
+        frameW: 100,
+        frameH: 100,
+        projectedW : 80,
+        projectedH : 80,
+        startRow : 0,
+        startCol : 0,
+        endRow : 1,
+        endCol : 2,
+      });
+      */
+      //burn.draw();
+      //burn.runLoop();
+      //var ctx  = canvas.getContext("2d");
+      //burn.draw(ctx, brick.x, brick.y, 80, 80);
       setTimeout(() => {
         burnOff();
       }, "100");
-      player.increaseScore(BRICK_SCORE);
+      if(PADDLE_WIDTH<300){
+        player.increaseScore(BRICK_SCORE);
+      }
       var boost = Math.floor(Math.random()*10)+1;
       if(boost<2){
         player.addLife();
@@ -218,14 +267,15 @@ function update(delta, timeElapsed) {
     drawHUD();
     stopAnimating();
     player.destroy();
-    //setTimeout(App.reset, PAUSE);
   }
   // If we're out of bricks, reset the level and speed up the ball.
   if (!bricks.getAll().length && !ball.levelUp) {
     ball.levelUp = true;
     Ball.prototype.MOVEAMOUNT = Math.min(
-    Ball.prototype.MOVEAMOUNT+BALL_SPEED_LEVEL_INCREASE, MAX_BALL_SPEED);
-    player.increaseScore(LEVEL_SCORE);
+        Ball.prototype.MOVEAMOUNT+BALL_SPEED_LEVEL_INCREASE, MAX_BALL_SPEED);
+    if(PADDLE_WIDTH<300){    
+      player.increaseScore(LEVEL_SCORE);
+    };
     stopAnimating();
     player.destroy();
     updateCnft();
@@ -238,9 +288,8 @@ function update(delta, timeElapsed) {
  */
 function draw() {
   //context.drawCheckered(100, 0, 0, world.width, world.height);
-  //context.drawImage('images/SolApeFam.svg',0,0,600,600);
+  //context.drawImage('images/SolApeFam.svg',0,0);
   context.drawImage(background,0,0,600,600);
-  //context.drawImage(overlay,0,599,600,21);
   hud.draw();
   cen.draw();
 	player.draw();
@@ -260,7 +309,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, PADDLE_HEIGHT, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 80, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
@@ -268,7 +317,7 @@ function setup(first) {
     ctx.fillRect(x, y, w, h);
   };
   */
-  player.src = 'images/Foot_006.svg';
+  player.src = 'images/Foot_007.svg';
   
 
   // Ignore up/down keys.
@@ -289,17 +338,11 @@ function setup(first) {
     drawHUD();
   };
   player.addLife = function() {
-    lives++; 
+    lives++;
     extraLives = "!!!! BONUS LIFE !!!!";
-    BALL_RADIUS = 55;
-    ball.width = BALL_RADIUS*2;
-    ball.height = BALL_RADIUS*2;
     setTimeout(() => {
       extraLivesReset();
-      BALL_RADIUS = 35;
-      ball.width = BALL_RADIUS*2;
-      ball.height = BALL_RADIUS*2;
-    }, "2000");
+    }, "1000");
     console.log("Bonus life added!!!!");
     drawHUD();
   };
@@ -335,29 +378,29 @@ function setup(first) {
     hud = new Layer({
       relative: 'canvas',
     });
-    hud.context.font = '34px slackey_regular';
+    hud.context.font = '24px Arial';
     hud.context.textAlign = 'right';
     hud.context.textBaseline = 'top';
     hud.context.fillStyle = '#2e2b2b';
     hud.context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
-    hud.context.lineWidth = 5;
+    hud.context.lineWidth = 3;
     // Set up center display.
     cen = new Layer({
       relative: 'canvas',
     });
-    cen.context.font = '64px slackey_regular';
+    cen.context.font = '34px Arial';
     cen.context.textAlign = 'right';
     cen.context.textBaseline = 'top';
     cen.context.fillStyle = '#2e2b2b';
     cen.context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
-    cen.context.lineWidth = 9;
+    cen.context.lineWidth = 3;
 
     // Add the countdown element.
     jQuery('#countdown').remove();
     $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; top: 30%; width: 100%; z-index: 10;">0</div>');
   }
   drawHUD();
-  drawCEN(625);
+  drawCEN();
 
   // Initialize the bricks at the beginning of a new level.
   if (typeof bricks === 'undefined' || !bricks.getAll().length || lives === 3) {
@@ -370,7 +413,6 @@ function setup(first) {
   
   // Go after countdown.
   draw();
-
   //countdown(startAnimating);
   if(gameOn){
     countdown(startAnimating);
@@ -380,37 +422,20 @@ function setup(first) {
 
 // 3... 2... 1... Go!
 function countdown(callback) {
-  centerText = '3';
-  drawCEN(300);
-  draw();
-  onCount = true;
+  var $countdown = jQuery('#countdown').text('3').show();
+ // drawCEN();
   setTimeout(function() {
-    //$countdown.text('1');
-    centerText = '';
-    drawCEN(625);
-    draw();
-  }, 4000);
-  setTimeout(function() {
-    //$countdown.text('Go!').fadeOut(1000);
-    centerText = 'Go!';
-    drawCEN(625);
-    draw();
+    $countdown.text('Go!').fadeOut(1000);
     if (typeof callback == 'function') {
       callback();
     };
     onCount = false;
   }, 3000);
   setTimeout(function() {
-    //$countdown.text('1');
-    centerText = '1';
-    drawCEN(500);
-    draw();
+    $countdown.text('1');
   }, 2000);
   setTimeout(function() {
-    //$countdown.text('2');
-    centerText = '2';
-    drawCEN(400);
-    draw();
+    $countdown.text('2');
   }, 1000);
 }
 
@@ -421,31 +446,25 @@ function drawHUD() {
   hud.context.strokeText('LIVES: ' + lives, 15, 15);
   hud.context.fillText('LIVES: ' + lives, 15, 15);
   hud.context.textAlign = 'center';
-  hud.context.strokeText(extraLives, 300, 300);
-  hud.context.fillText(extraLives, 300, 300);
+  hud.context.strokeText(extraLives, 300, 400);
+  hud.context.fillText(extraLives, 300, 400);
  
   hud.context.textAlign = 'right';
   hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
   hud.context.fillText('COINS: ' + score, canvas.width - 15, 15);
-  hud.context.font = '34px slackey_regular';
+  hud.context.font = '94px Arial';
   hud.context.textAlign = 'center';
-    if(winner!=""){
-    hud.context.font = '80px slackey_regular';
-  }
   hud.context.strokeText(winner, 300, 300);
   hud.context.fillText(winner, 300, 300);
-  hud.context.font = '34px slackey_regular';
-
-  
+  hud.context.font = '24px Arial';
 }
 
-//var fontCentHeight = 625
 // Draw the score and lives.
-function drawCEN(fontCentHeight) {
+function drawCEN() {
   cen.context.clear();
   cen.context.textAlign = 'center';
-  cen.context.strokeText(centerText, 300, fontCentHeight);
-  cen.context.fillText(centerText, 300, fontCentHeight);
+  cen.context.strokeText(centerText, 300, 650);
+  cen.context.fillText(centerText, 300, 650);
 }
 
 // Ball type
@@ -464,6 +483,9 @@ var Ball = Actor.extend({
    // Draw as a smiley face normally, but a frowny face after hitting the bottom.
    drawDefault: function() {
     if (this.lifeTaken) {
+      console.log("you dead")
+      var svgBall = document.getElementById("bb");
+      svgBall.setAttribute("fill", "red");
     }
     else {
       Actor.prototype.drawDefault.apply(this, arguments);
@@ -483,19 +505,6 @@ var Ball = Actor.extend({
       if (player.hasLivesLeft()) {
         player.takeLife();
         player.destroy();
-        extraLives = "!!!! LIFE LOST !!!!";
-      console.log("!!YOU DEAD!!");
-       setTimeout(() => {
-      extraLivesReset();
-    }, "2000");
-      drawHUD()
-      //var svgBall = document.getElementById("bb");
-    /*  bb.setAttribute("fill", "red");
-      fullBall = svgBall.outerHTML;
-      let blob2 = new Blob([fullBall], {type : 'image/svg+xml'});
-  ball.src = URL.createObjectURL(blob2);
-  //draw();
-  */
         stopAnimating();
         setTimeout(App.reset, PAUSE);
       }
