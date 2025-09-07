@@ -2072,7 +2072,7 @@ jQuery(window).on('blur.animFocus', function() {
   stopAnimating();
   _blurred = true;
   gameOn = false;
-  centerText = 'Click to Play';
+  centerText = 'Tap to Play';
   drawCEN();
 });
 

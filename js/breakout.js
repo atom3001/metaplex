@@ -8,7 +8,7 @@ var preloadables = ['images/MM_Sun_Ball_006.svg'];
  * The Player object; an Actor controlled by user input.
  */
 var player;
-var centerText = 'Click to Play';
+var centerText = 'Tap to Play';
 var background;
 var cnftCo;
 var columns = 7;
