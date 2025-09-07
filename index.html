@@ -162,8 +162,11 @@
     const hints =  ["model", "platform"];
     n.userAgentData.getHighEntropyValues(hints)
       .then(ua => {
-        //console.log(ua.platform);
-		    //console.log(ua.model);
+      console.log(ua.platform);
+		  console.log(ua.model);
+    //if(ua.platform!=''){
+		//  document.getElementById("plat").innerHTML = ua.platform+" in the house!";
+    //}
 		if(ua.model!=''){
 		  document.getElementById("seek").innerHTML = ua.model+" in the house!";
       var canvas = document.getElementById("canvas");
@@ -184,7 +187,7 @@
     }
   }
 
-//checkOS(navigator);
+checkOS(navigator);
 </script>
 </body>
 </html>
