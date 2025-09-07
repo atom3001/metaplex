@@ -378,7 +378,7 @@ function setup(first) {
     hud = new Layer({
       relative: 'canvas',
     });
-    hud.context.font = '24px Arial';
+    hud.context.font = '34px slackey_regular';
     hud.context.textAlign = 'right';
     hud.context.textBaseline = 'top';
     hud.context.fillStyle = '#2e2b2b';
@@ -388,7 +388,7 @@ function setup(first) {
     cen = new Layer({
       relative: 'canvas',
     });
-    cen.context.font = '34px Arial';
+    cen.context.font = '34px slackey_regular';
     cen.context.textAlign = 'right';
     cen.context.textBaseline = 'top';
     cen.context.fillStyle = '#2e2b2b';
@@ -452,11 +452,11 @@ function drawHUD() {
   hud.context.textAlign = 'right';
   hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
   hud.context.fillText('COINS: ' + score, canvas.width - 15, 15);
-  hud.context.font = '94px Arial';
+  hud.context.font = '34px slackey_regular';
   hud.context.textAlign = 'center';
   hud.context.strokeText(winner, 300, 300);
   hud.context.fillText(winner, 300, 300);
-  hud.context.font = '24px Arial';
+  hud.context.font = '80px slackey_regular';
 }
 
 // Draw the score and lives.
