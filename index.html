@@ -104,6 +104,8 @@
           <div id="setfont" font-family="slackey_regular" display="none" visibility="hidden" overflow="hidden">
       .
      </div>
+	 <p id="plat" style="text-align: center;"></p>
+	 <p id="seek" style="text-align: center;"></p>
  
   
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
@@ -128,6 +130,28 @@
     s.parentNode.insertBefore(g,s)}(document,'script'));
     */
   </script>
+	<script>
+	  function checkOS(n) {
+  if (n.userAgentData) {
+    const hints = ["architecture", "model", "platform", "platformVersion", "uaFullVersion"];
+    n.userAgentData.getHighEntropyValues(hints)
+      .then(ua => {
+        console.log(ua.platform);
+		console.log(ua.model);
+		if(ua.platform!=''){
+		document.getElementById("plat").innerHTML = ua.platform+" in the house!";
+		}
+		if(ua.model!=''){
+		document.getElementById("seek").innerHTML = ua,model+" in the house!";
+		}
+      });
+  } else {
+    console.log(n.userAgent);
+    return "navigator.userAgentData is not supported!";
+  }
+}
 
+checkOS(navigator);
+</script>
 </body>
 </html>
