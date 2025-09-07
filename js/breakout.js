@@ -46,6 +46,7 @@ var cnftHeader = document.getElementById("cnftHeader");
 
 //make bricks cnfts
 var collection;
+var randCol;
 var tones = ["#f6d9cb","#efc0a4","#d68d6a","#edb886","#c98558","#5b3c28","#9f6946","#49240e","#d5e87e","#d397ea","#fe7e94","#ffd42a"]
 var toneSelect = Math.floor(Math.random()*11)+1; 
 var desSelect = Math.floor(Math.random()*5)+1;
@@ -62,7 +63,7 @@ function updateBall(){
   }
   //var svgBall = 'images/ball_eb_01.svg';
   var bb = svgBall.getElementById("bb");
-  var randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
+  randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
   //console.log("bg Colour = "+collection[select].bgc);
   //console.log("random Colour = "+randCol);
   bb.setAttribute("fill", randCol);
@@ -131,9 +132,20 @@ function updateCnft(){
   //console.log('cnft is '+cnft);
   console.log("Artists X account https://x.com/atom3000_");
     console.log("view on Solana Explorer "+"https://explorer.solana.com/address/"+collection[select].nftId)
+	var exp = document.getElementById("exp");
+	exp.href = "https://explorer.solana.com/address/"+collection[select].nftId
+	//console.log("exp href set I hope = "+exp);
 	//console.log("token address "+collection[select].nftId);
     console.log("original image "+cnft);
+	var ogi = document.getElementById("ori");
+	ori.href = cnft;
 	console.log("image design "+collection[select].title);
+	var des = document.getElementById("des");
+	des.style.color = randCol;
+	des.innerHTML = collection[select].title;
+	var pal = document.getElementById("pal");
+	pal.style.color = collection[select].bgc;
+	pal.innerHTML = collection[select].palette;
 	console.log("image colour palette "+collection[select].palette);
 	console.log("colour order is "+collection[select].colOrd);
   /*
