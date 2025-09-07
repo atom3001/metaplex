@@ -157,8 +157,8 @@ var winner = "";
 
 
 // Constants. Tweak these to change the game dynamics.
-var PADDLE_WIDTH = 140, //120
-    PADDLE_HEIGHT = 180 // 80 for foot only, 280 really long
+var PADDLE_WIDTH = 180, //120 liked 140 on v6 svg
+    PADDLE_HEIGHT = 80 // 80 for foot only, 280 really long
     INITIAL_LIVES = 3,
     BRICK_SCORE = 30, // Points for destroying a single block
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
