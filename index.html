@@ -19,6 +19,17 @@
   <link rel="stylesheet" media="all" href="css/utilities.css" />
   <link rel="stylesheet" media="screen" href="css/media.css" />
   <link rel="stylesheet" media="print" href="css/print.css" />
+  <style>
+    @font-face {
+    font-family: 'slackey_regular';
+    src: url('fonts/slackey_regular.eot');
+    src: url('fonts/slackey_regular.eot') format('embedded-opentype'),
+         url('fonts/slackey_regular.woff2') format('woff2'),
+         url('fonts/slackey_regular.woff') format('woff'),
+         url('fonts/slackey_regular.ttf') format('truetype'),
+         url('fonts/slackey_regular.svg#slackey_regular') format('svg');
+    }
+  </style>
   <script>
     function collection(){console.log("The Game is A Foot");};
     var gameOn = false;
@@ -90,7 +101,9 @@
             <path id="bb" fill="#ffd42a"  d="M77.5-.4a76.1 76.1 0 0 0-22.3-54.1c-5.4-5.8-18.8-3-23.3 3-14 18.6-46 88.8-46 88.8-20.5-14.2-33-34-18.3-58.3L3 1l8.4-16.3s-36.2-22.5-43.7-27.8c-7.6-5.3-29.1-5.8-37.2 8.7A77.5 77.5 0 1 0 77.5 0m-95.3 75.4c14.2 3.4 17.4-.5 24-12a988.3 988.3 0 0 0 40-86.5"/>
           </g>
         </svg>
-     
+          <div id="setfont" font-family="slackey_regular" display="none" visibility="hidden" overflow="hidden">
+      .
+     </div>
  
   
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
