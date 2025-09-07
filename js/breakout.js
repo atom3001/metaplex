@@ -66,7 +66,7 @@ function updateBall(){
   //var svgBall = 'images/ball_eb_01.svg';
   var bb = svgBall.getElementById("bb");
   randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
-  //console.log("bg Colour = "+collection[select].bgc);
+  pal.style.color = randCol;
   //console.log("random Colour = "+randCol);
   bb.setAttribute("fill", randCol);
   var tone = svgBall.getElementById("tone");
@@ -133,20 +133,20 @@ function updateCnft(){
   cnft = collection[select].path;
   //console.log('cnft is '+cnft);
   console.log("Artists X account https://x.com/atom3000_");
-    console.log("view on Solana Explorer "+"https://explorer.solana.com/address/"+collection[select].nftId)
+  console.log("view on Solana Explorer "+"https://explorer.solana.com/address/"+collection[select].nftId)
 	var exp = document.getElementById("exp");
 	exp.href = "https://explorer.solana.com/address/"+collection[select].nftId
 	//console.log("exp href set I hope = "+exp);
 	//console.log("token address "+collection[select].nftId);
-    console.log("original image "+cnft);
+  console.log("original image "+cnft);
 	var ogi = document.getElementById("ori");
 	ori.href = cnft;
 	console.log("image design "+collection[select].title);
 	var des = document.getElementById("des");
-	des.style.color = randCol;
+	des.style.color = collection[select].bgc;
 	des.innerHTML = collection[select].title;
 	var pal = document.getElementById("pal");
-	pal.style.color = collection[select].bgc;
+	//pal.style.color = collection[select].bgc;
 	pal.innerHTML = collection[select].palette;
 	console.log("image colour palette "+collection[select].palette);
 	console.log("colour order is "+collection[select].colOrd);
@@ -243,14 +243,7 @@ function update(delta, timeElapsed) {
 
   ball.update();
 
-  //If you reach a certain scrore
-  if(score>2999){ //2999
-    console.log("!! YOU WIN !!");
-    winner = "!! YOU WIN !!";
-    drawHUD();
-    stopAnimating();
-    player.destroy();
-  }
+
   // If we're out of bricks, reset the level and speed up the ball.
   if (!bricks.getAll().length && !ball.levelUp) {
     ball.levelUp = true;
@@ -263,6 +256,14 @@ function update(delta, timeElapsed) {
     player.destroy();
     updateCnft();
     setTimeout(App.reset, PAUSE);
+  }
+    //If you reach a certain scrore
+  if(score>2999){ //2999
+    console.log("!! YOU WIN !!");
+    winner = "!! YOU WIN !!";
+    drawHUD();
+    stopAnimating();
+    player.destroy();
   }
 }
 
