@@ -11,6 +11,7 @@ var player;
 var svgBall, bb, fullBall;
 var centerText = 'Tap to Play';
 var background;
+//var overlay; //nearly there need to a svg to index to make colour updatable
 var cnftCo;
 var columns = 7;
 var rows = 6;
@@ -124,14 +125,17 @@ function updateCnft(){
   background.src = collection[select].path;
   //overlay = new Image();
   //overlay.src = "images/top_rec_001.svg"
+  //overlay.url = "https://x.com/atom3000_";
   //"images/grad_v1.png"
   
   // Make sure the image is loaded first otherwise nothing will draw.
   background.onload = function(){
   ctx.drawImage(background,0,0,600,600);
-  //ctx.drawImage(overlay,0,599,600,21);
+  
   }
-
+  //overlay.onload = function(){
+    //ctx.drawImage(overlay,0,599,600,21);
+  //}
   
 
   updateBall();
@@ -153,15 +157,16 @@ var winner = "";
 
 
 // Constants. Tweak these to change the game dynamics.
-var PADDLE_WIDTH = 180, //120
+var PADDLE_WIDTH = 140, //120
+    PADDLE_HEIGHT = 180 // 80 for foot only, 280 really long
     INITIAL_LIVES = 3,
     BRICK_SCORE = 30, // Points for destroying a single block
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
     SPIN_FACTOR = 100, // 100 is arbitrary, but it should be above the FPS.
     BALL_RADIUS = 35,
     BALL_SPEED = 600, // In pixels per second was 400
-    MAX_BALL_SPEED = 1200, // was 1000
-    BALL_SPEED_LEVEL_INCREASE = 45, //was 25
+    MAX_BALL_SPEED = 1000, // was 1000
+    BALL_SPEED_LEVEL_INCREASE = 35, //was 25
     PAUSE = 1500; // ms to pause after losing a life or winning a level
 
 /**
@@ -233,8 +238,9 @@ function update(delta, timeElapsed) {
  */
 function draw() {
   //context.drawCheckered(100, 0, 0, world.width, world.height);
-  //context.drawImage('images/SolApeFam.svg',0,0);
+  //context.drawImage('images/SolApeFam.svg',0,0,600,600);
   context.drawImage(background,0,0,600,600);
+  //context.drawImage(overlay,0,599,600,21);
   hud.draw();
   cen.draw();
 	player.draw();
@@ -254,7 +260,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 280, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, PADDLE_HEIGHT, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
@@ -262,7 +268,7 @@ function setup(first) {
     ctx.fillRect(x, y, w, h);
   };
   */
-  player.src = 'images/Foot_002.svg';
+  player.src = 'images/Foot_006.svg';
   
 
   // Ignore up/down keys.
@@ -415,8 +421,8 @@ function drawHUD() {
   hud.context.strokeText('LIVES: ' + lives, 15, 15);
   hud.context.fillText('LIVES: ' + lives, 15, 15);
   hud.context.textAlign = 'center';
-  hud.context.strokeText(extraLives, 300, 400);
-  hud.context.fillText(extraLives, 300, 400);
+  hud.context.strokeText(extraLives, 300, 300);
+  hud.context.fillText(extraLives, 300, 300);
  
   hud.context.textAlign = 'right';
   hud.context.strokeText('COINS: ' + score, canvas.width - 15, 15);
