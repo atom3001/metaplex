@@ -2,7 +2,7 @@
 /**
  * An array of image file paths to pre-load.
  */
-var preloadables = ['images/Foot_007.svg','images/SolApeFam.svg','images/ball_eb_01.svg','images/ball_hm_01.svg','images/explosion.gif'];
+var preloadables = ['images/MM_Sun_Ball_006.svg'];
 
 /**
  * The Player object; an Actor controlled by user input.
@@ -54,17 +54,17 @@ var cnft = "https://arweave.net/UuWSZ_PY0fzFDSjhqVlL9PxtGbMp_3gc4H7pgTvnmAc";
 function updateBall(){
   var svgBall = document.getElementById("ballSvg");
   if(collection[0].title==="Hive Mind"){
-    console.log("We got a hive mind "+collection[0].title);
+    //console.log("We got a hive mind "+collection[0].title);
     svgBall = document.getElementById("ballSvg2");
   } else {
-    console.log("We noot got a hive mind "+collection[0].title);
+    //console.log("We noot got a hive mind "+collection[0].title);
     svgBall = document.getElementById("ballSvg");
   }
   //var svgBall = 'images/ball_eb_01.svg';
   var bb = svgBall.getElementById("bb");
   var randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
-  console.log("bg Colour = "+collection[select].bgc);
-  console.log("random Colour = "+randCol);
+  //console.log("bg Colour = "+collection[select].bgc);
+  //console.log("random Colour = "+randCol);
   bb.setAttribute("fill", randCol);
   var tone = svgBall.getElementById("tone");
   if(collection[select].tone==="null"){
@@ -85,8 +85,8 @@ function updateFoot(){
   //var svgBall = 'images/ball_eb_01.svg';
   var leg = foot.getElementById("leg");
   var randCol = collection[select].colours.substring((desSelect*17)+9,(desSelect*17)+16);
-  console.log("bg Colour = "+collection[select].bgc);
-  console.log("random Colour = "+randCol);
+  //console.log("bg Colour = "+collection[select].bgc);
+  //console.log("random Colour = "+randCol);
   leg.setAttribute("fill", randCol);
   var tone = foot.getElementById("tone");
   if(collection[select].tone==="null"){
@@ -111,7 +111,6 @@ function updateCnft(){
   //console.log("select is a type of "+typeof select+" "+select)
   //cnft = "hmCollection[select].path";
   //console.log(desSelect);
-  console.log(cnft);
   switch (desSelect) {
     case 1:
       collection = kwCollection;
@@ -129,25 +128,32 @@ function updateCnft(){
       collection = hmCollection
   }
   cnft = collection[select].path;
-  console.log('cnft is '+cnft);
+  //console.log('cnft is '+cnft);
+  console.log("Artists X account https://x.com/atom3000_");
+    console.log("view on Solana Explorer "+"https://explorer.solana.com/address/"+collection[select].nftId)
+	//console.log("token address "+collection[select].nftId);
+    console.log("original image "+cnft);
+	console.log("image design "+collection[select].title);
+	console.log("image colour palette "+collection[select].palette);
+	console.log("colour order is "+collection[select].colOrd);
   /*
   cnftCo = new Object();
   cnftCo.src = collection[select].path;
   var cnftImage = document.getElementById("cnftImage");
   var curImage = cnftImage.getElementsByTagName('svg');
   var rect = cnftImage.getAttribute('rect');
-  console.log('curImage = '+curImage);
-  console.log('rectangle = '+rect);
+  //console.log('curImage = '+curImage);
+  //console.log('rectangle = '+rect);
   */
 /*
   var elms = document.querySelector(".emb");
   var subdoc = elms.outerHTML;
   var cnftSvg = elms.data //.contentDocument; //getSVGDocument();
   var cnftSvgData = elms.data.innerHTML;//.contentDocument; //.getSVGDocument();
-  console.log('elms is '+elms);
-  console.log('subdoc is '+subdoc);
-  console.log('svg doc= '+cnftSvg);
-  console.log('svg doc data = '+cnftSvgData);
+  //console.log('elms is '+elms);
+  //console.log('subdoc is '+subdoc);
+  //console.log('svg doc= '+cnftSvg);
+  //console.log('svg doc data = '+cnftSvgData);
   //cnftData = document.getElementsByTagName('svg')[0].outerHTML;
   //console.log('cnftCo is '+cnft.contentDocument);
   */
@@ -225,25 +231,8 @@ function update(delta, timeElapsed) {
     ball.bounce(o.x, o.y);
     // Increment score and kill the brick if we hit it.
     if (o.x || o.y) {
-      //console.log("hit at "+brick.x+" "+brick.y);       
       burn = new Box(brick.x, brick.y, 80, 80);     
-      burn.src = 'images/explosion.gif';
-      /*
-      burn.src = new Sprite('images/explosionMap.gif',  {
-        frameW: 100,
-        frameH: 100,
-        projectedW : 80,
-        projectedH : 80,
-        startRow : 0,
-        startCol : 0,
-        endRow : 1,
-        endCol : 2,
-      });
-      */
-      //burn.draw();
-      //burn.runLoop();
-      //var ctx  = canvas.getContext("2d");
-      //burn.draw(ctx, brick.x, brick.y, 80, 80);
+      burn.src = 'images/MM_Sun_Ball_006.svg';
       setTimeout(() => {
         burnOff();
       }, "100");
@@ -340,10 +329,16 @@ function setup(first) {
   player.addLife = function() {
     lives++;
     extraLives = "!!!! BONUS LIFE !!!!";
+    BALL_RADIUS = 55;
+    ball.width = BALL_RADIUS*2;
+    ball.height = BALL_RADIUS*2;
     setTimeout(() => {
       extraLivesReset();
-    }, "1000");
-    console.log("Bonus life added!!!!");
+      BALL_RADIUS = 35;
+      ball.width = BALL_RADIUS*2;
+      ball.height = BALL_RADIUS*2;
+    }, "2000");
+    //console.log("Bonus life added!!!!");
     drawHUD();
   };
   
@@ -388,7 +383,7 @@ function setup(first) {
     cen = new Layer({
       relative: 'canvas',
     });
-    cen.context.font = '34px slackey_regular';
+    cen.context.font = '64px slackey_regular';
     cen.context.textAlign = 'right';
     cen.context.textBaseline = 'top';
     cen.context.fillStyle = '#2e2b2b';
@@ -397,7 +392,7 @@ function setup(first) {
 
     // Add the countdown element.
     jQuery('#countdown').remove();
-    $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; top: 30%; width: 100%; z-index: 10;">0</div>');
+    $canvas.after('<div id="countdown" style="background-color: rgba(255, 255, 255, 0); display: none; font-size: 60px; height: 80px; left: 0; overflow: hidden; position: absolute; text-align: center; color: #2e2b2b; text-shadow: 2px 2px 0 rgba(211, 211, 211, 0.5), -2px -2px 0 rgba(211, 211, 211, 0.5), 2px -2px 0 rgba(211, 211, 211, 0.5), -2px 2px 0 rgba(211, 211, 211, 0.5); top: 33%; width: 100%; z-index: 10;">0</div>');
   }
   drawHUD();
   drawCEN();
@@ -454,9 +449,12 @@ function drawHUD() {
   hud.context.fillText('COINS: ' + score, canvas.width - 15, 15);
   hud.context.font = '34px slackey_regular';
   hud.context.textAlign = 'center';
+    if(winner!=""){
+    hud.context.font = '80px slackey_regular';
+  }
   hud.context.strokeText(winner, 300, 300);
   hud.context.fillText(winner, 300, 300);
-  hud.context.font = '80px slackey_regular';
+  hud.context.font = '34px slackey_regular';
 }
 
 // Draw the score and lives.
@@ -483,7 +481,7 @@ var Ball = Actor.extend({
    // Draw as a smiley face normally, but a frowny face after hitting the bottom.
    drawDefault: function() {
     if (this.lifeTaken) {
-      console.log("you dead")
+      //console.log("you dead")
       var svgBall = document.getElementById("bb");
       svgBall.setAttribute("fill", "red");
     }

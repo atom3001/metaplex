@@ -2738,14 +2738,14 @@ App.gameOver = function(text) {
   // This runs during update() before the final draw(), so we have to delay it.
   setTimeout(function() {
     context.save();
-    context.font = '100px Arial';
-    context.fillStyle = 'black';
-    context.strokeStyle = 'lightGray';
+    context.font = '80px slackey_regular';
+    context.fillStyle = '#2e2b2b';
+    context.strokeStyle = 'rgba(211, 211, 211, 0.5)';
     context.textBaseline = 'middle';
     context.textAlign = 'center';
-    context.shadowColor = 'black';
+    /*context.shadowColor = 'black'; */
     context.shadowBlur = 8;
-    context.lineWidth = 5;
+    context.lineWidth = 14;
     var x = Math.round(world.xOffset+canvas.width/2);
     var y = Math.round(world.yOffset+canvas.height/2);
     context.strokeText(text, x, y);
