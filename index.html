@@ -104,10 +104,25 @@
           <div id="setfont" font-family="slackey_regular" display="none" visibility="hidden" overflow="hidden">
       .
      </div>
-	 <p id="plat" style="text-align: center;"></p>
-	 <p id="seek" style="text-align: center;"></p>
- 
-  
+	 <div style="text-align: center;">
+		 <p>
+		 <p id="des" style="color:grey; font-size: 24px;"></p>
+		 <p id="pal" style="font-size: 28px;"></p>
+		 <p><a id="exp" href="https://explorer.solana.com/address/" target="_blank">solana explorer</a></p>
+		 <p><a id="ori" href="https://explorer.solana.com/address/" target="_blank">original image</a></p>
+		 <p id="seek"></p>
+		 <p id="plat"></p>
+		 <br>
+	 </div>
+	 <p>
+	 <div style="text-align: center;">
+          <button class="transparent_button" type="button" onclick="window.open('https://x.com/atom3000_', '_blank')">
+			<img src="images/X_icon_50.svg">
+		  </button>
+	 </div>
+	 <p style="text-align: center;">© atom3000</p>
+	
+	
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../js/libraries/jquery-2.0.2.min.js"><\/script>')</script>
@@ -136,7 +151,7 @@
     const hints = ["architecture", "model", "platform", "platformVersion", "uaFullVersion"];
     n.userAgentData.getHighEntropyValues(hints)
       .then(ua => {
-        console.log(ua.platform);
+        //console.log(ua.platform);
 		console.log(ua.model);
 		if(ua.platform!=''){
 		document.getElementById("plat").innerHTML = ua.platform+" in the house!";
@@ -151,7 +166,7 @@
   }
 }
 
-checkOS(navigator);
+//checkOS(navigator);
 </script>
 </body>
 </html>
