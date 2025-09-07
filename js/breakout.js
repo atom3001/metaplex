@@ -13,6 +13,7 @@ var background;
 var cnftCo;
 var columns = 7;
 var rows = 3;
+var brickRan = 2;
 
 var layout =  "   B   \n   B   \n   B   ";
 
@@ -24,7 +25,7 @@ function updateLayout(){
     var newRow = [];
     for(j=1;j<=columns;j++)
     {
-      newRow.push(ops[Math.floor(Math.random()*2)]);
+      newRow.push(ops[Math.floor(Math.random()*brickRan)]);
     }
     newRow.push(end);
     newLayout.push(newRow);
@@ -148,28 +149,7 @@ function updateCnft(){
 	pal.innerHTML = collection[select].palette;
 	console.log("image colour palette "+collection[select].palette);
 	console.log("colour order is "+collection[select].colOrd);
-  /*
-  cnftCo = new Object();
-  cnftCo.src = collection[select].path;
-  var cnftImage = document.getElementById("cnftImage");
-  var curImage = cnftImage.getElementsByTagName('svg');
-  var rect = cnftImage.getAttribute('rect');
-  //console.log('curImage = '+curImage);
-  //console.log('rectangle = '+rect);
-  */
-/*
-  var elms = document.querySelector(".emb");
-  var subdoc = elms.outerHTML;
-  var cnftSvg = elms.data //.contentDocument; //getSVGDocument();
-  var cnftSvgData = elms.data.innerHTML;//.contentDocument; //.getSVGDocument();
-  //console.log('elms is '+elms);
-  //console.log('subdoc is '+subdoc);
-  //console.log('svg doc= '+cnftSvg);
-  //console.log('svg doc data = '+cnftSvgData);
-  //cnftData = document.getElementsByTagName('svg')[0].outerHTML;
-  //console.log('cnftCo is '+cnft.contentDocument);
-  */
-
+ 
   canvas.style.backgroundColor = collection[select].bgc; //'rgba(255, 240, 40, 0)' 
   
   
@@ -207,6 +187,7 @@ var winner = "";
 
 // Constants. Tweak these to change the game dynamics.
 var PADDLE_WIDTH = 180, //120
+    PADDLE_HEIGHT = 80,
     INITIAL_LIVES = 3,
     BRICK_SCORE = 30, // Points for destroying a single block
     LEVEL_SCORE = 100, // Points for destroying all blocks in a level
@@ -310,7 +291,7 @@ function setup(first) {
 //  updateCnft();
 
   // Initialize the paddle.
-  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, 80, '#2e2b2b');
+  player = new Player(world.width/2-PADDLE_WIDTH/2, world.height, PADDLE_WIDTH, PADDLE_HEIGHT, '#2e2b2b');
   player.MOVEAMOUNT = 800; // Speed up arrow-key movement.
   /*
   player.drawDefault = function(ctx, x, y, w, h) {
