@@ -132,7 +132,8 @@
 		  </button>
 	 </div>
 	 <p style="text-align: center;">© atom3000</p>
-	
+   <p id="rel" style="text-align: center;"><a href="index.html" target="_self">reload</a></p>
+		
 	
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -170,14 +171,14 @@
 		if(ua.model!=''){
 		  document.getElementById("seek").innerHTML = ua.model+" in the house!";
       var canvas = document.getElementById("canvas");
-      canvas.height = 970;
-      rows = 6;
-      brickRan = 4;
+      canvas.height = 880;
+      rows = 3; //if you add more rows eg 6
+      brickRan = 4; // reduce the amount of bricks here eg 2
       var foot_s = document.getElementById("foot");
       foot_s.id = "foot_s"
       var foot_l = document.getElementById("foot_l");
       foot_l.id = "foot";
-      PADDLE_WIDTH = 140, //120
+      PADDLE_WIDTH = 180, //120
       PADDLE_HEIGHT = 180 // 80 for foot only
 		}
     });
