@@ -10,6 +10,15 @@
          url('fonts/slackey_regular.ttf') format('truetype'),
          url('fonts/slackey_regular.svg#slackey_regular') format('svg');
 }
+@font-face {
+    font-family: 'LacquerRegular';
+    src: url('fonts/LacquerRegular.eot');
+    src: url('fonts/LacquerRegular.eot') format('embedded-opentype'),
+         url('fonts/LacquerRegular.woff2') format('woff2'),
+         url('fonts/LacquerRegular.woff') format('woff'),
+         url('fonts/LacquerRegular.ttf') format('truetype'),
+         url('fonts/LacquerRegular.svg#LacquerRegular') format('svg');
+}
 
 html, button, input, select, textarea {
   color: #000000;
