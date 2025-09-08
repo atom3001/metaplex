@@ -144,6 +144,16 @@ function updateCnft(){
 	console.log("image design "+collection[select].title);
 	var des = document.getElementById("des");
 	des.style.color = collection[select].bgc;
+  //console.log("bg colour is "+collection[select].bgc)
+  //pal.style.color #121436
+  if(collection[select].bgc=="#121436"){
+    des.style.textShadow = 
+                  '-2px -2px 4px grey, ' +  
+                  '2px -2px 4px grey, ' +
+                  '-2px 2px 4px grey, ' +
+                  '2px 2px 4px grey';
+  };                
+  //text-shadow: 2px 2px 0 rgba(211, 211, 211, 0.5), -2px -2px 0 rgba(211, 211, 211, 0.5), 2px -2px 0 rgba(211, 211, 211, 0.5), -2px 2px 0 rgba(211, 211, 211, 0.5);
 	des.innerHTML = collection[select].title;
 	var pal = document.getElementById("pal");
 	//pal.style.color = collection[select].bgc;
