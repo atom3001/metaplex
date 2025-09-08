@@ -34,6 +34,15 @@
          url('fonts/slackey_regular.ttf') format('truetype'),
          url('fonts/slackey_regular.svg#slackey_regular') format('svg');
     }
+    @font-face {
+    font-family: 'LacquerRegular';
+    src: url('fonts/LacquerRegular.eot');
+    src: url('fonts/LacquerRegular.eot') format('embedded-opentype'),
+         url('fonts/LacquerRegular.woff2') format('woff2'),
+         url('fonts/LacquerRegular.woff') format('woff'),
+         url('fonts/LacquerRegular.ttf') format('truetype'),
+         url('fonts/LacquerRegular.svg#LacquerRegular') format('svg');
+    }
   </style>
   <script>
     function collection(){console.log("The Game is A Foot");};
@@ -112,27 +121,29 @@
             <path id="bb" fill="#ffd42a"  d="M77.5-.4a76.1 76.1 0 0 0-22.3-54.1c-5.4-5.8-18.8-3-23.3 3-14 18.6-46 88.8-46 88.8-20.5-14.2-33-34-18.3-58.3L3 1l8.4-16.3s-36.2-22.5-43.7-27.8c-7.6-5.3-29.1-5.8-37.2 8.7A77.5 77.5 0 1 0 77.5 0m-95.3 75.4c14.2 3.4 17.4-.5 24-12a988.3 988.3 0 0 0 40-86.5"/>
           </g>
         </svg>
-          <div id="setfont" font-family="slackey_regular" display="none" visibility="hidden" overflow="hidden">
+    <div id="setfont" font-family="slackey_regular" display="none" visibility="hidden" overflow="hidden">
       .
      </div>
 	 <div style="text-align: center;">
 		 <p>
-		 <p id="des" style="color:grey; font-size: 24px;"></p>
-		 <p id="pal" style="font-size: 28px;"></p>
-		 <p><a id="exp" href="https://explorer.solana.com/address/" target="_blank">solana explorer</a></p>
-		 <p><a id="ori" href="https://explorer.solana.com/address/" target="_blank">original image</a></p>
-		 <p id="seek"></p>
-		 <p id="plat"></p>
+      <!-- <p style="color:grey;"><span style="font-family:'LacquerRegular'; font-weight:bold; font-size: 28px;">breakout</span></p> 
+     <p style="color:grey;font-size: 24px;">Solana Ape Family</p>-->
+		 <p id="des" style="color:grey; font-size: 30px;"></p>
+		 <p id="pal" style="font-size: 34px;"></p>
+		 <p><a id="exp" style="font-size: 20px;" href="https://explorer.solana.com/address/" target="_blank">explore token</a></p>
+		 <p><a id="ori" style="font-size: 20px;" href="https://explorer.solana.com/address/" target="_blank">view original</a></p>
 		 <br>
+     <p></p>
+     <p id="seek"></p>
+		 <p id="plat"></p>
 	 </div>
-	 <p>
 	 <div style="text-align: center;">
           <button class="transparent_button" type="button" onclick="window.open('https://x.com/atom3000_', '_blank')">
 			<img src="images/X_icon_50.svg">
 		  </button>
 	 </div>
-	 <p style="text-align: center;">© atom3000</p>
-   <p id="rel" style="text-align: center;"><a href="index.html" target="_self">reload</a></p>
+	 <p style="text-align: center;font-size: 20px;">© atom3000</p>
+   <p id="rel" style="text-align: center;font-size: 20px;"><a href="index.html" target="_self">reload</a></p>
 		
 	
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
@@ -169,7 +180,7 @@
 		//  document.getElementById("plat").innerHTML = ua.platform+" in the house!";
     //}
 		if(ua.model!=''){
-		  document.getElementById("seek").innerHTML = ua.model+" in the house!";
+		  document.getElementById("seek").innerHTML = ua.model+" in da howse!";
       var canvas = document.getElementById("canvas");
       canvas.height = 880;
       rows = 3; //if you add more rows eg 6
