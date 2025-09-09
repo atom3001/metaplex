@@ -146,7 +146,7 @@ function updateCnft(){
 	des.style.color = collection[select].bgc;
   //console.log("bg colour is "+collection[select].bgc)
   //pal.style.color #121436
-  if(collection[select].bgc=="#121436"){
+  if(collection[select].bgc==="#121436"){
     des.style.textShadow = 
                   '-2px -2px 4px grey, ' +  
                   '2px -2px 4px grey, ' +
