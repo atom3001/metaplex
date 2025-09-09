@@ -152,6 +152,8 @@ function updateCnft(){
                   '2px -2px 4px grey, ' +
                   '-2px 2px 4px grey, ' +
                   '2px 2px 4px grey';
+  } else {
+    des.style.textShadow = '';
   };                
   //text-shadow: 2px 2px 0 rgba(211, 211, 211, 0.5), -2px -2px 0 rgba(211, 211, 211, 0.5), 2px -2px 0 rgba(211, 211, 211, 0.5), -2px 2px 0 rgba(211, 211, 211, 0.5);
 	des.innerHTML = collection[select].title;
